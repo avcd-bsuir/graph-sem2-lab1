@@ -2,7 +2,7 @@
 /*
  * main.cpp
  *
- * This file should be used as a template file.
+ *
  *
  * Written by AlexeyFilich
  * 24 feb 2020

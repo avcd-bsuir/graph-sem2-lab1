@@ -15,10 +15,10 @@ Engine::Engine(std::string window_title, int width, int height, Color clear_colo
     if (!this->renderer)
         throwError("SDLRendererInitError", SDL_GetError());
 
-    SDL_SetRenderDrawColor(this->renderer, 0xFF, 0xFF, 0xFF, 0xFF);
+    SDL_SetRenderDrawColor(this->renderer, clear_color.r, clear_color.g, clear_color.b, clear_color.a);
 
     log("Engine", "Creating surface");
-    this->surface = SDL_CreateRGBSurface(0, this->width, this->height, 32, clear_color.r, clear_color.g, clear_color.b, clear_color.a);
+    this->surface = SDL_CreateRGBSurface(0, this->width, this->height, 32, 0x00FF0000, 0x0000FF00, 0x000000FF, 0xFF000000);
     if (!this->surface)
         throwError("SDLSurfaceInitError", SDL_GetError());
 

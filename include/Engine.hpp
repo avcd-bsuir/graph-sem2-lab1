@@ -14,8 +14,7 @@ struct Color {
 };
 
 class Engine {
-    public:
-    // private:
+    private:
         int width, height;
         bool should_exit;
 
