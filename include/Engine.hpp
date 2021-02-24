@@ -14,7 +14,8 @@ struct Color {
 };
 
 class Engine {
-    private:
+    public:
+    // private:
         int width, height;
         bool should_exit;
 
@@ -24,6 +25,7 @@ class Engine {
         SDL_Surface * surface;
         SDL_Texture * texture;
         SDL_Window * window;
+        Color clear_color;
     public:
         Engine(std::string, int, int, Color);
         ~Engine();

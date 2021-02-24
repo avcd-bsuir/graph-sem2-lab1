@@ -1,6 +1,6 @@
 #include "Engine.hpp"
 
-Engine::Engine(std::string window_title, int width, int height, Color clear_color) : width(width), height(height), window(nullptr), renderer(nullptr), texture(nullptr), surface(nullptr), should_exit(false) {
+Engine::Engine(std::string window_title, int width, int height, Color clear_color) : width(width), height(height), clear_color(clear_color), window(nullptr), renderer(nullptr), texture(nullptr), surface(nullptr), should_exit(false) {
     log("Engine", "Initializing SDL");
     if (SDL_Init(SDL_INIT_VIDEO) < 0)
         throwError("SDLInitError", SDL_GetError());
@@ -71,4 +71,5 @@ void Engine::draw() {
 
 void Engine::clear() {
     SDL_RenderClear(this->renderer);
+    SDL_FillRect(this->surface, NULL, this->clear_color.a << 24 | this->clear_color.r << 16 | this->clear_color.g >> 8 | this->clear_color.b);
 }

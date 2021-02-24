@@ -20,7 +20,7 @@
 int main(int argc, char* args[]) {
     Engine engine("Lab 1", WIDTH, HEIGHT, Color(0x0));
 
-    float a = 150.0f, l = 150.0f;
+    float a = 250.0f, l = 150.0f;
 
     while (!engine.shouldExit()) {
         SDL_Event event;
