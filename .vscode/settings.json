@@ -4,7 +4,8 @@
         "${workspaceFolder}/third-party/tools-stuff/include/",
         "third-party/tools-storage/include/",
         "third-party/tools-stuff/include/",
-        "include/"
+        "include/",
+        "C:\\MinGW\\include"
     ],
     "files.associations": {
         "*.rma": "jade",
