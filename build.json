@@ -1,23 +1,21 @@
 {
     "project": "program",
     "compiler": {
-        "path": "g++.exe",
+        "path": "g++",
         "flags": "-std=c++17 -static-libstdc++ -static-libgcc",
         "include_path": [
             "include/",
-            "third-party/toolbox/",
-            "C:\\MinGW\\include"
+            "third-party/toolbox/"
         ],
         "library_path": [
-            "lib/",
-            "C:\\MinGW\\lib"
+            "lib/"
         ]
     },
     "main": {
         "path": "src/main.cpp",
         "output_name": "main.out",
         "flags": "",
-        "binaries": "-lpthread -lmingw32 -lSDL2main -lSDL2"
+        "binaries": "-lpthread -lSDL2main -lSDL2"
     },
     "sources": [
         { "path": "src/Engine.cpp", "flags": "", "binaries": "" },
