@@ -49,24 +49,24 @@ checkSuccess() {
 }
 
 printf -- "\e[38;05;2;49;24;27m--\e[0m \e[38;05;2;49;04;27mStarting build process\e[0m\n"
-printf -- "\e[38;05;2;49;24;27m-- Compiler: \e[0m \e[38;05;3;49;04;27mg++\e[0m\n\n"
+printf -- "\e[38;05;2;49;24;27m-- Compiler: \e[0m \e[38;05;3;49;04;27mg++.exe\e[0m\n\n"
 
 recompile="False"
 printHeader src/Engine.cpp
-checkRecomp src/Engine.cpp build/src/Engine.hash build/src/ build/src/Engine.o
+checkRecomp src/Engine.cpp build/src/Engine.hash build/src/ build/src/Engine.o 
 if [ $recompile == "True" ]
 then
-    g++ -c -std=c++17 -static-libstdc++ -static-libgcc -I"include/" -I"third-party/toolbox/" -L"lib/" src/Engine.cpp -o build/src/Engine.o
+    g++.exe -c -std=c++17 -static-libstdc++ -static-libgcc -I"include/" -I"third-party/toolbox/" -I"C:\MinGW\include" -L"lib/" -L"C:\MinGW\lib" src/Engine.cpp -o build/src/Engine.o 
     checkSuccess build/src/Engine.o build/src/Engine.hash
     echo "$(md5sum src/Engine.cpp)" > build/src/Engine.hash
 fi
 
 recompile="False"
 printHeader src/utils.cpp
-checkRecomp src/utils.cpp build/src/utils.hash build/src/ build/src/utils.o
+checkRecomp src/utils.cpp build/src/utils.hash build/src/ build/src/utils.o 
 if [ $recompile == "True" ]
 then
-    g++ -c -std=c++17 -static-libstdc++ -static-libgcc -I"include/" -I"third-party/toolbox/" -L"lib/" src/utils.cpp -o build/src/utils.o
+    g++.exe -c -std=c++17 -static-libstdc++ -static-libgcc -I"include/" -I"third-party/toolbox/" -I"C:\MinGW\include" -L"lib/" -L"C:\MinGW\lib" src/utils.cpp -o build/src/utils.o 
     checkSuccess build/src/utils.o build/src/utils.hash
     echo "$(md5sum src/utils.cpp)" > build/src/utils.hash
 fi
@@ -77,7 +77,7 @@ checkRecomp src/main.cpp build/src/main.hash build/src/ build/src/main.out
 if [ $recompile == "True" ] || [ $main_should_recompile == "True" ]
 then
     printf -- "..... \e[38;05;3;49;04;27mmain.cpp\e[0m \e[38;05;10;49;24;27mis updating, because other files have changed\e[0m\n"
-    g++ -std=c++17 -static-libstdc++ -static-libgcc -I"include/" -I"third-party/toolbox/" -L"lib/" src/main.cpp -o build/src/main.out build/src/Engine.o build/src/utils.o -lpthread -lSDL2
+    g++.exe -std=c++17 -static-libstdc++ -static-libgcc -I"include/" -I"third-party/toolbox/" -I"C:\MinGW\include" -L"lib/" -L"C:\MinGW\lib" src/main.cpp -o build/src/main.out build/src/Engine.o build/src/utils.o -lpthread -lmingw32 -lSDL2main -lSDL2
     checkSuccess build/src/main.out build/src/main.hash
     echo "$(md5sum src/main.cpp)" > build/src/main.hash
 fi
