@@ -2,7 +2,7 @@
 /*
  * main.cpp
  *
- *
+ * Simple curve drawing
  *
  * Written by AlexeyFilich
  * 24 feb 2020
@@ -39,9 +39,11 @@ int main(int argc, char* args[]) {
 
         engine.clear();
 
+        // Borders
         for (int x = 0; x < WIDTH; x++) engine.setPixel(x, HEIGHT / 2, Color(0, 255, 0));
         for (int y = 0; y < HEIGHT; y++) engine.setPixel(WIDTH / 2, y, Color(0, 255, 0));
 
+        // Curve
         for (float t = 0; t < 2 * 3.14159; t += 0.001) {
             float x = (a * cos(t) * cos(t) + l * cos(t)) + WIDTH / 2,
                   y = (a * cos(t) * sin(t) + l * sin(t)) + HEIGHT / 2;
@@ -50,6 +52,9 @@ int main(int argc, char* args[]) {
         }
 
         engine.draw();
+
+        // Lock to < 60 fps for better CPU usage
+        SDL_Delay(16);
     }
     return 0;
 }
