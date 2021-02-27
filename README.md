@@ -2,82 +2,16 @@
 
 # Usage
 
-build.json for Unix:
-```json
-{
-    "project": "program",
-    "compiler": {
-        "path": "g++",
-        "flags": "-std=c++17 -static-libstdc++ -static-libgcc",
-        "include_path": [
-            "include/",
-            "third-party/toolbox/"
-        ],
-        "library_path": [
-            "lib/"
-        ]
-    },
-    "main": {
-        "path": "src/main.cpp",
-        "output_name": "main.out",
-        "flags": "",
-        "binaries": "-lpthread -lSDL2main -lSDL2"
-    },
-    "sources": [
-        { "path": "src/Engine.cpp", "flags": "", "binaries": "" },
-        { "path": "src/utils.cpp", "flags": "", "binaries": "" }
-    ],
-    "extra_commands": [
-        "cp build/src/main.out bin/main",
-        "echo -- Starting",
-        "cd bin",
-        "./main",
-        "cd ..",
-        "echo -- Done"
-    ]
-}
-```
-
-for Windows:
-```json
-{
-    "project": "program",
-    "compiler": {
-        "path": "g++.exe",
-        "flags": "-std=c++17 -static-libstdc++ -static-libgcc",
-        "include_path": [
-            "include/",
-            "third-party/toolbox/",
-            "C:\\MinGW\\include"
-        ],
-        "library_path": [
-            "lib/",
-            "C:\\MinGW\\lib"
-        ]
-    },
-    "main": {
-        "path": "src/main.cpp",
-        "output_name": "main.out",
-        "flags": "",
-        "binaries": "-lpthread -lmingw32 -lSDL2main -lSDL2"
-    },
-    "sources": [
-        { "path": "src/Engine.cpp", "flags": "", "binaries": "" },
-        { "path": "src/utils.cpp", "flags": "", "binaries": "" }
-    ],
-    "extra_commands": [
-        "cp build/src/main.out bin/main",
-        "echo -- Starting",
-        "cd bin",
-        "./main",
-        "cd ..",
-        "echo -- Done"
-    ]
-}
-```
-
 To compile and run a program use:
+linux:
 ```
+$ bsha -f build_unix.json
+$ ./build.sh
+```
+
+windows (wsl):
+```
+$ bsha -f build_unix.json
 $ ./build.sh
 ```
 
