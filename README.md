@@ -3,6 +3,7 @@
 # Usage
 
 To compile and run a program use:
+
 linux:
 ```
 $ bsha -f build_unix.json
@@ -11,7 +12,7 @@ $ ./build.sh
 
 windows (wsl):
 ```
-$ bsha -f build_unix.json
+$ bsha -f build_win.json
 $ ./build.sh
 ```
 
